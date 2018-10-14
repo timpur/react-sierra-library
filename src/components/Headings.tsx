@@ -7,13 +7,16 @@ export type Props = TextProps<HeadingProps>;
 const BuildHeading: (
   type: string,
   size: TextSize
-) => StatelessComponent<Props> = (type, size) => props => (
-  <Text
-    size={size}
-    Component={(props: HeadingProps) => React.createElement(type, props)}
-    {...props}
-  />
-);
+) => StatelessComponent<Props> = (type, size) =>
+  function Heading(props) {
+    return (
+      <Text
+        size={size}
+        Component={(props: HeadingProps) => React.createElement(type, props)}
+        {...props}
+      />
+    );
+  };
 
 export const H1 = BuildHeading("h1", "huge");
 export const H2 = BuildHeading("h2", "big");
