@@ -1,0 +1,39 @@
+{
+  "name": "sierra-library-react",
+  "version": "0.1.0",
+  "description": "Sierra Library for React (and Preact)",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "npm run build -- --watch",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timpur/sierra-library-react.git"
+  },
+  "keywords": [
+    "sierra-library"
+  ],
+  "author": "timpur",
+  "license": "SEE LICENSE IN LICENCE FILE",
+  "bugs": {
+    "url": "https://github.com/timpur/sierra-library-react/issues"
+  },
+  "homepage": "https://github.com/timpur/sierra-library-react#readme",
+  "dependencies": {
+    "@types/classnames": "^2.2.6",
+    "@types/react": "^16.4.15",
+    "classnames": "^2.2.6",
+    "sierra-library": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.14.3",
+    "react": "^16.5.2",
+    "typescript": "^3.1.1"
+  }
+}
