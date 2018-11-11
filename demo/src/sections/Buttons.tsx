@@ -9,12 +9,8 @@ const Buttons: StatelessComponent = () => (
     <H1>Buttons</H1>
     <H3 color="gray">Button colors</H3>
     <div>
-      <Button mobile>Default</Button>
       <Button mobile color="primary">
         Primary
-      </Button>
-      <Button mobile color="outlines">
-        Outlines
       </Button>
       <Button mobile color="secondary">
         Secondary
@@ -22,14 +18,14 @@ const Buttons: StatelessComponent = () => (
       <Button mobile disabled>
         Disabled
       </Button>
-      <Button mobile color="white">
-        White
-      </Button>
       <Button mobile color="green">
         Green
       </Button>
       <Button mobile color="red">
         Red
+      </Button>
+      <Button mobile color="outlined">
+        Outlined
       </Button>
       <Button mobile color="transparent">
         Transparent
@@ -47,9 +43,6 @@ const Buttons: StatelessComponent = () => (
     </ButtonGroup>
     <H3 color="gray">Button sizes</H3>
     <div>
-      <Button mobile size="huge">
-        Button Huge
-      </Button>
       <Button mobile size="big">
         Button Big
       </Button>

@@ -2,23 +2,20 @@ import React, { StatelessComponent } from "react";
 import Text, { Props as TextProps, Size as TextSize } from "./Text";
 
 type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
-export type Props = TextProps<HeadingProps>;
 
-const BuildHeading: (
-  type: string,
-  size: TextSize
-) => StatelessComponent<Props> = (type, size) =>
-  function Heading(props) {
-    return (
-      <Text
-        size={size}
-        Component={(props: HeadingProps) => React.createElement(type, props)}
-        {...props}
-      />
-    );
-  };
+export interface IProps extends TextProps<HeadingProps> {}
 
-export const H1 = BuildHeading("h1", "huge");
-export const H2 = BuildHeading("h2", "big");
-export const H3 = BuildHeading("h3", "medium");
-export const H4 = BuildHeading("h4", "small");
+const H1: StatelessComponent<IProps> = (props) => (
+  <Text tagName="h1" size="huge" {...props} />
+);
+const H2: StatelessComponent<IProps> = (props) => (
+  <Text tagName="h2" size="big" {...props} />
+);
+const H3: StatelessComponent<IProps> = (props) => (
+  <Text tagName="h3" size="medium" {...props} />
+);
+const H4: StatelessComponent<IProps> = (props) => (
+  <Text tagName="h4" size="small" {...props} />
+);
+
+export { H1, H2, H3, H4 };

@@ -1,35 +1,32 @@
-import React, { StatelessComponent } from "react";
 import classNames from "classnames";
+import React, { StatelessComponent } from "react";
 
 export type Color =
   | "primary"
   | "secondary"
-  | "outlines"
-  | "white"
   | "green"
   | "red"
+  | "outlined"
   | "transparent";
 
-export type Size = "huge" | "big" | "small";
+export type Size = "big" | "small";
 
-export type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: Color;
   size?: Size;
   disabled?: boolean;
   mobile?: boolean;
-  large?: boolean;
-};
+}
 
-const Button: StatelessComponent<Props> = props => {
-  const { className, color, size, disabled, mobile, large, ...rest } = props;
+const Button: StatelessComponent<IProps> = (props) => {
+  const { className, color, size, disabled, mobile, ...rest } = props;
   const classes = classNames(className, "button", {
-    [`button-${color}`]: !!color,
-    [`button-${size}`]: !!size,
-    "button-disabled": disabled,
-    "block-mobile": mobile,
-    "button-large": large
+    [`button--${color}`]: !!color,
+    [`button--${size}`]: !!size,
+    "button--disabled": disabled,
+    "button--mobileFull": mobile,
   });
-  return <button {...rest} className={classes} disabled={disabled} />;
+  return <button className={classes} disabled={disabled} {...rest} />;
 };
 
 export default Button;

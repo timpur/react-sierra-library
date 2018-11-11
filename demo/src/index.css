@@ -1,1 +1,35 @@
 @import "../../node_modules/sierra-library/dist/sierra.min.css";
+
+.code-example {
+  border-radius: 5px;
+  border: 1px solid #d5d9db;
+  margin-bottom: 16px;
+  white-space: normal;
+}
+
+.code-example > div {
+  padding: 16px;
+  border-bottom: 1px solid #d5d9db;
+}
+
+.code-example > pre {
+  margin: 0 !important;
+}
+
+.code-example > textarea {
+  max-width: 100%;
+  max-height: 200px;
+  min-width: 100%;
+  min-height: 100px;
+  border: 0;
+  margin: 0;
+  padding: 16px;
+  margin-bottom: -5px;
+}
+
+.code-example > button {
+  position: relative;
+  top: -10px;
+  left: -20px;
+  float: left;
+}

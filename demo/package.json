@@ -7,10 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@mdx-js/runtime": "^0.15.7",
+    "@mdx-js/tag": "^0.15.6",
+    "mdx": "^0.3.1",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-syntax-highlighter": "^10.0.0",
+    "refractor": "^2.6.1"
   },
   "devDependencies": {
+    "@mdx-js/parcel-plugin-mdx": "^0.15.7",
     "parcel-bundler": "^1.10.2"
   },
   "alias": {

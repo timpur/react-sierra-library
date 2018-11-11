@@ -1,21 +1,14 @@
-import React, { StatelessComponent } from "react";
 import classNames from "classnames";
+import React, { StatelessComponent } from "react";
 
-export type Color =
-  | "primary"
-  | "secondary"
-  | "gray"
-  | "success"
-  | "info"
-  | "warning"
-  | "error";
+export type Color = "primary" | "secondary" | "gray" | "success" | "info" | "warning" | "error";
 
 export type Size = "huge" | "big" | "medium" | "small";
 
 export type Align = "left" | "center" | "right";
 
 export type Props<T = React.HTMLAttributes<HTMLParagraphElement>> = T & {
-  Component?: StatelessComponent<T>;
+  tagName?: string;
   color?: Color;
   size?: Size;
   align?: Align;
@@ -24,9 +17,9 @@ export type Props<T = React.HTMLAttributes<HTMLParagraphElement>> = T & {
   italic?: boolean;
 };
 
-const Text: StatelessComponent<Props> = props => {
+const Text: StatelessComponent<Props> = (props) => {
   const {
-    Component,
+    tagName,
     className,
     color,
     size,
@@ -34,21 +27,24 @@ const Text: StatelessComponent<Props> = props => {
     uppercase,
     lineThrough,
     italic,
+    // tslint:disable-next-line:trailing-comma
     ...rest
   } = props;
   const classes = classNames(className, {
     [`text-${color}`]: !!color,
     [`text-${size}`]: !!size,
-    [`text-${align}`]: !!align,
-    "text-uppercase": uppercase,
+    [`align-${align}`]: !!align,
+    "text-italic": italic,
     "text-line-through": lineThrough,
-    "text-italic": italic
+    "text-uppercase": uppercase,
   });
-  return <Component {...rest} className={classes} />;
+
+  return React.createElement(tagName, { className: classes, ...rest });
 };
 
 Text.defaultProps = {
-  Component: props => React.createElement("p", props)
+  tagName: "p",
+  size: "medium",
 };
 
 export default Text;
