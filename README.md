@@ -1,2 +1,2 @@
-# sierra-library-react
+# react-sierra-library
 Sierra Library for React (and Preact)
