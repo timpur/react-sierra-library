@@ -1,5 +1,5 @@
 {
-  "name": "sierra-library-react",
+  "name": "react-sierra-library",
   "version": "0.1.0",
   "description": "Sierra Library for React (and Preact)",
   "main": "./lib/index.js",
