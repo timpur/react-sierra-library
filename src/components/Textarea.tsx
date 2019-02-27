@@ -12,8 +12,8 @@ export interface IProps extends InputProps {
 const Textarea: StatelessComponent<IProps> = (props) => {
   const { label, inError, full, className, ...rest } = props;
   const classes = classNames(className, "textarea", {
-    "error": inError,
-    "full-width": full,
+    "textarea-full-width": full,
+    "has-error": inError,
   });
   return (
     <Fragment>

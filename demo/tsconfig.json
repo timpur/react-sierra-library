@@ -7,7 +7,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "sierra-library-react*": ["../lib/*"]
+      "react-sierra-library*": ["../lib/*"]
     }
   }
 }

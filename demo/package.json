@@ -20,6 +20,6 @@
     "parcel-bundler": "^1.10.2"
   },
   "alias": {
-    "sierra-library-react": "../lib"
+    "react-sierra-library": "../lib"
   }
 }

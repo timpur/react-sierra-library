@@ -1,102 +1,58 @@
 import classNames from "classnames";
 import React, { StatelessComponent } from "react";
-import {
-  excludeKeys,
-  getKeyValuePairPick,
-  InferArrayType,
-  stringLiteralArray,
-} from "../helpers";
+import { Dict } from "../types";
 
 type DivProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-// ---- Grid ----- //
-
-export interface IGridProps extends DivProps {
-  fluid?: boolean;
-}
-
-const Grid: StatelessComponent<IGridProps> = (props) => {
-  const { className, fluid, ...rest } = props;
-  const classes = classNames(
-    className,
-    fluid ? "container-fluid" : "container",
-  );
-
-  return React.createElement("div", { className: classes, ...rest });
-};
-
 // ---- Row ---- //
 
-const sizes = stringLiteralArray(["xs", "sm", "md", "lg", "xl"]);
-type Size = InferArrayType<typeof sizes>;
-
-const rowKeys = stringLiteralArray([
-  "start",
-  "center",
-  "end",
-  "top",
-  "middle",
-  "bottom",
-  "around",
-  "between",
-]);
-type RowKeyType = { [K in InferArrayType<typeof rowKeys>]?: Size };
-
-export interface IRowProps extends RowKeyType, DivProps {
+export interface IRowProps extends DivProps {
   reverse?: boolean;
 }
 
-const Row: StatelessComponent<IRowProps> = (props) => {
-  const rowClasses = getKeyValuePairPick(props, rowKeys).map(
-    ({ key, value }) => `${key}-${value}`,
-  );
-  const { reverse, className, ...rest } = excludeKeys(props, rowKeys);
-  const classes = classNames(className, "row", rowClasses, { reverse });
-
-  return React.createElement("div", { className: classes, ...rest });
+export const Row: StatelessComponent<IRowProps> = ({ reverse, className, ...props }) => {
+  const classes = classNames("row", { reverse }, className);
+  return <div {...props} className={classes} />;
 };
 
 // ---- Col ---- //
 
-type ColumnSize = number | boolean;
+type ColSize = boolean | number | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "auto";
+type ColOrder = number | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "first";
+type ColOffset = number | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11";
 
-const colKeys = sizes;
-const colOffsetKeys = stringLiteralArray([
-  "xsOffset",
-  "smOffset",
-  "mdOffset",
-  "lgOffset",
-  "xlOffset",
-]);
-
-type ColKeysType = { [K in InferArrayType<typeof colKeys>]?: ColumnSize };
-type ColOffsetKeysType = {
-  [K in InferArrayType<typeof colOffsetKeys>]?: number
-};
-
-export interface IColProps extends ColKeysType, ColOffsetKeysType, DivProps {
-  first?: Size;
-  last?: Size;
+interface SizeProps<T> {
+  xs?: T;
+  sm?: T;
+  md?: T;
+  lg?: T;
+  xl?: T;
 }
 
-const Col: StatelessComponent<IColProps> = (props) => {
-  const colClasses = getKeyValuePairPick(props, colKeys).map(
-    ({ key, value }) => `col-${key}-${value}`,
-  );
-  const colOffsetClasses = getKeyValuePairPick(props, colOffsetKeys).map(
-    ({ key, value }) => `col-${key}-offset-${value}`,
+export interface IColProps extends SizeProps<ColSize>, DivProps {
+  order?: SizeProps<ColOrder>;
+  offset?: SizeProps<ColOffset>;
+}
+
+export const Col: StatelessComponent<IColProps> = ({ xs, sm, md, lg, xl, order, offset, ...props }) => {
+  const classes = classNames(
+    {
+      [`col-xs-${xs}`]: xs,
+      [`col-sm-${sm}`]: sm,
+      [`col-md-${md}`]: md,
+      [`col-lg-${lg}`]: lg,
+      [`col-xl-${xl}`]: xl,
+      col: xs || sm || md || lg || xl,
+    },
+    Object.keys(order).reduce((res, key) => {
+      res[`order-${key}-${order[key]}`] = order[key];
+      return res;
+    }, {}),
+    Object.keys(offset).reduce((res, key) => {
+      res[`offset-${key}-${order[key]}`] = order[key];
+      return res;
+    }, {}),
   );
 
-  const { first, last, className, ...rest } = excludeKeys(props, [
-    ...colKeys,
-    ...colOffsetKeys,
-  ]);
-  const classes = classNames(className, colClasses, colOffsetClasses, {
-    [`first-${first}`]: !!first,
-    [`last-${last}`]: !!last,
-  });
-
-  return React.createElement("div", { className: classes, ...rest });
+  return <div {...props} className={classes} />;
 };
-
-export { Row, Col, Grid };

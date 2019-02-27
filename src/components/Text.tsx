@@ -18,18 +18,7 @@ export type Props<T = React.HTMLAttributes<HTMLParagraphElement>> = T & {
 };
 
 const Text: StatelessComponent<Props> = (props) => {
-  const {
-    tagName,
-    className,
-    color,
-    size,
-    align,
-    uppercase,
-    lineThrough,
-    italic,
-    // tslint:disable-next-line:trailing-comma
-    ...rest
-  } = props;
+  const { tagName, className, color, size, align, uppercase, lineThrough, italic, ...rest } = props;
   const classes = classNames(className, {
     [`text-${color}`]: !!color,
     [`text-${size}`]: !!size,

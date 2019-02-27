@@ -5,6 +5,7 @@
   border: 1px solid #d5d9db;
   margin-bottom: 16px;
   white-space: normal;
+  position: relative;
 }
 
 .code-example > div {
@@ -28,7 +29,7 @@
 }
 
 .code-example > button {
-  position: relative;
+  position: absolute;
   top: -10px;
   left: -20px;
   float: left;

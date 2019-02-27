@@ -1,9 +1,9 @@
 import React, { StatelessComponent } from "react";
 
-import { Section } from "sierra-library-react/components/Common";
-import { Col, Row } from "sierra-library-react/components/FlexBoxGrid";
-import { H1, H3 } from "sierra-library-react/components/Headings";
-import Text from "sierra-library-react/components/Text";
+import { Section } from "react-sierra-library/components/Common";
+import { Col, Row } from "react-sierra-library/components/FlexBoxGrid";
+import { H1, H3 } from "react-sierra-library/components/Headings";
+import Text from "react-sierra-library/components/Text";
 
 const Texts: StatelessComponent = () => (
   <Section>

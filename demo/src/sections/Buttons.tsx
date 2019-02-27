@@ -1,8 +1,8 @@
 import React, { StatelessComponent } from "react";
 
-import Button from "sierra-library-react/components/Button";
-import ButtonGroup from "sierra-library-react/components/ButtonGroup";
-import { H1, H3 } from "sierra-library-react/components/Headings";
+import Button from "react-sierra-library/components/Button";
+import ButtonGroup from "react-sierra-library/components/ButtonGroup";
+import { H1, H3 } from "react-sierra-library/components/Headings";
 
 const Buttons: StatelessComponent = () => (
   <div>

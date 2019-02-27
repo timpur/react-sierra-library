@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timpur/sierra-library-react.git"
+    "url": "git+https://github.com/timpur/react-sierra-library.git"
   },
   "keywords": [
     "sierra-library"
@@ -18,24 +18,24 @@
   "author": "timpur",
   "license": "SEE LICENSE IN LICENCE FILE",
   "bugs": {
-    "url": "https://github.com/timpur/sierra-library-react/issues"
+    "url": "https://github.com/timpur/react-sierra-library/issues"
   },
-  "homepage": "https://github.com/timpur/sierra-library-react#readme",
+  "homepage": "https://github.com/timpur/react-sierra-library#readme",
   "dependencies": {
-    "@types/classnames": "^2.2.6",
-    "@types/react": "^16.4.18",
+    "@types/classnames": "^2.2.7",
+    "@types/react": "^16.8.5",
     "classnames": "^2.2.6",
-    "sierra-library": "^3.0.10"
+    "sierra-library": "^3.1.0"
   },
   "peerDependencies": {
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "prettier": "^1.14.3",
-    "prettier-tslint": "^0.4.0",
-    "react": "^16.6.0",
-    "tslint": "^5.11.0",
+    "prettier": "^1.16.4",
+    "prettier-tslint": "^0.4.2",
+    "react": "^16.8.3",
+    "tslint": "^5.13.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.3.3333"
   }
 }

@@ -12,16 +12,17 @@ export interface IProps extends InputProps {
 const Input: StatelessComponent<IProps> = (props) => {
   const { label, inError, full, className, ...rest } = props;
   const classes = classNames(className, "input", {
-    "error": inError,
-    "full-width": full,
+    "input-full-width": full,
+    "has-error": inError,
   });
+  const id = rest.id || rest.name;
   return (
     <Fragment>
-      <label className="label" htmlFor={rest.id}>
+      <label className="label" htmlFor={id}>
         {label}
       </label>
       <div className={classes}>
-        <input {...rest} />
+        <input {...rest} id={id} />
       </div>
     </Fragment>
   );

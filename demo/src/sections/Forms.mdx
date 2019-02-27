@@ -1,0 +1,64 @@
+# Forms
+
+## Input
+
+```jsx
+<Input label="First Name" name="firstName" placeHolder="First Name" />
+```
+
+### Input with Error
+
+```jsx
+<Field error="Error Message">
+  <Input label="First Name" name="firstName" placeHolder="First Name" />
+</Field>
+```
+
+## Select
+
+```jsx
+<Select
+  label="First Name"
+  name="firstName"
+  placeHolder="First Name"
+  options={["Option 1", "Option 2", "Option 3", "Option 4"]}
+/>
+
+<Select label="First Name" name="firstName" placeHolder="First Name">
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+  <option>Option 4</option>
+</Select>
+```
+
+### Select with Error
+
+```jsx
+<Field error="Error Message">
+  <Select
+    label="First Name"
+    name="firstName"
+    placeHolder="First Name"
+    options={["Option 1", "Option 2", "Option 3", "Option 4"]}
+  />
+</Field>
+```
+
+## Textarea
+
+```jsx
+<Textarea label="Textarea" name="large-content">
+  Initial Test
+</Textarea>
+```
+
+### Textarea with Error
+
+```jsx
+<Field error="Error Message">
+  <Textarea label="Textarea" name="large-content">
+    Initial Test
+  </Textarea>
+</Field>
+```

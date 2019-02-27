@@ -16,30 +16,33 @@ export interface IProps extends InputProps {
 }
 
 const Select: StatelessComponent<IProps> = (props) => {
-  const { label, inError, full, options, className, ...rest } = props;
+  const { label, inError, full, options, className, children, ...rest } = props;
   const classes = classNames(className, "select", {
-    "error": inError,
-    "full-width": full,
+    "select-full-width": full,
+    "has-error": inError,
   });
-  const mappedOptions = options
-    .map((item) => {
-      if (typeof item === "string") {
-        return { label: item, value: item };
-      }
-      return item;
-    })
-    .map((item) => (
-      <option key={item.value} value={item.value}>
-        {item.label}
-      </option>
-    ));
+  const childOptions = !options
+    ? children
+    : options
+        .map((item) => {
+          if (typeof item === "string") {
+            return { label: item, value: item };
+          }
+          return item;
+        })
+        .map((item) => (
+          <option key={item.value} value={item.value}>
+            {item.label}
+          </option>
+        ));
+
   return (
     <Fragment>
       <label className="label" htmlFor={rest.id}>
         {label}
       </label>
       <div className={classes}>
-        <select {...rest}>{mappedOptions}</select>
+        <select {...rest}>{childOptions}</select>
       </div>
     </Fragment>
   );

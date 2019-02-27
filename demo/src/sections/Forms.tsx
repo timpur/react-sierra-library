@@ -1,12 +1,12 @@
 import React, { StatelessComponent } from "react";
 
-import { Section } from "sierra-library-react/components/Common";
-import Field from "sierra-library-react/components/Field";
-import { Col, Row } from "sierra-library-react/components/FlexBoxGrid";
-import { H1, H3 } from "sierra-library-react/components/Headings";
-import Input from "sierra-library-react/components/Input";
-import Select from "sierra-library-react/components/Select";
-import Textarea from "sierra-library-react/components/Textarea";
+import { Section } from "react-sierra-library/components/Common";
+import Field from "react-sierra-library/components/Field";
+import { Col, Row } from "react-sierra-library/components/FlexBoxGrid";
+import { H1, H3 } from "react-sierra-library/components/Headings";
+import Input from "react-sierra-library/components/Input";
+import Select from "react-sierra-library/components/Select";
+import Textarea from "react-sierra-library/components/Textarea";
 
 const countries = [
   "Afghanistan",
